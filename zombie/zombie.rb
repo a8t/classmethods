@@ -1,11 +1,11 @@
 class Zombie
   # Your class should have the following class variables:
-  @@horde = [] # should start as an empty array and will eventually contain the collection of all zombies.
-  @@plague_level = 10 # should start at 10 and will be used to determine the rate at which new zombies are spawned. This value will increase over time.
-  @@max_speed = 5 # should be set to 5 and indicates the maximum value for the speed attribute of any zombie. This value won't change.
-  @@max_strength = 8 # should be set to 8 and indicates the maximum value for the strength attribute of any zombie. This value won't change.
-  @@default_speed = 1 # should be set to 1. This value won't change.
-  @@default_strength = 3 # should be set to 3. This value won't change.
+  @@horde = []
+  @@plague_level = 10
+  @@max_speed = 5
+  @@max_strength = 8
+  @@default_speed = 1
+  @@default_strength = 3
 
   attr_accessor :zombie_speed, :zombie_strength
 
@@ -57,5 +57,9 @@ class Zombie
 
   def self.increase_plague_level
     @@plague_level += rand(3)
+  end
+
+  def self.deadliest_zombie
+    self.all.max_by{|zombie| zombie.zombie_speed + zombie.zombie_strength}
   end
 end
