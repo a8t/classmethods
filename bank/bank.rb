@@ -1,5 +1,5 @@
 class BankAccount
-  attr_accessor :balance
+  # attr_accessor :balance
 
   @@interest_rate = 1.01
   @@accounts = []
@@ -30,7 +30,9 @@ class BankAccount
 
   def self.interest_time
     @@accounts.each do |each_account|
-      each_account.balance *= @@interest_rate
+      each_account.deposit(@@interest_rate * each_account.balance)
+      # each_account.balance *= @@interest_rate
+      # above 
     end
   end
 
