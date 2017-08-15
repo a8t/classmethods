@@ -63,4 +63,9 @@ class Book
   def self.borrowed
     @@on_loan
   end
+
+  def renew
+    @due_date += (7*24*60*60) #adds 1 week's worth of seconds
+  end
+
 end
